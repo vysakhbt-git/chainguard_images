@@ -1,47 +1,9 @@
 contents:
   packages:
-    - curl
-    - curl-dev
-    - bash
-    - apk-tools
-    - busybox
-    - git
-    - build-base
-    - ca-certificates-bundle
-    - ca-certificates
-    - openssl
-    - openssl-dev
     - ingress-nginx-controller
-    - dumb-init
-    - geoip-dev
-    - pcre
-    - zlib
-    - libxml2
-    - tzdata
-    - opentracing-cpp
-    - msgpack
-    - mimalloc=1.7.6-r2
-    - datadog-cpp
-    - yaml-cpp
-    - yaml-cpp-dev
-    - zipkin-cpp
-    - modsecurity
-    - lua-resty-balancer
-    - lua-cjson
-    - luajit
-    - luajit-dev
-    - lua-resty-cache
-    - lua-resty-cookie
-    - lua-resty-dns
-    - lua-resty-core
-    - lua-resty-global-throttle
-    - lua-resty-ipmatcher
-    - lua-resty-memcached
-    - lua-resty-http
-    - lua-resty-lock
-    - lua-resty-redis
-    - lua-resty-string
-    - lua-resty-upload
+    - ingress-nginx-controller-compat
+    # - mimalloc>1.7 # can we use latest mimalloc?
+    - mimalloc2
 
 accounts:
   groups:
@@ -51,11 +13,6 @@ accounts:
     - username: www-data
       uid: 101
   run-as: www-data
-
-annotations:
-      "org.opencontainers.image.authors" : "Chainguard Team https://www.chainguard.dev/"
-      "org.opencontainers.image.url" : "https://edu.chainguard.dev/chainguard/chainguard-images/reference/ingress-nginx-controller"
-      "org.opencontainers.image.source" : "https://github.com/chainguard-images/images/tree/main/images/ingress-nginx-controller"
 
 environment:
   PATH: "$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/luajit/bin:/usr/local/nginx/sbin/"
@@ -164,30 +121,30 @@ paths:
     type: directory
     permissions: 0o755
     recursive: true
-  - path: /sbin/nginx
-    source: /usr/local/nginx/sbin/nginx
-    type: symlink
-    uid: 101
-    gid: 101
-    permissions: 0o755
-  - path: /usr/lib/libmimalloc.so
-    source: /usr/lib/libmimalloc.so.1.7
-    type: symlink
-    uid: 101
-    gid: 101
-    permissions: 0o755    
-  - path: /usr/local/lib/libmimalloc.so
-    source: /usr/lib/libmimalloc.so.1.7
-    type: symlink
-    uid: 101
-    gid: 101
-    permissions: 0o755        
-  - path: /usr/bin/nginx
-    source: /sbin/nginx
-    type: symlink
-    uid: 101
-    gid: 101
-    permissions: 0o755
+  # - path: /sbin/nginx
+  #   source: /usr/local/nginx/sbin/nginx
+  #   type: symlink
+  #   uid: 101
+  #   gid: 101
+  #   permissions: 0o755
+  # - path: /usr/lib/libmimalloc.so
+  #   source: /usr/lib/libmimalloc.so.1.7
+  #   type: symlink
+  #   uid: 101
+  #   gid: 101
+  #   permissions: 0o755
+  # - path: /usr/local/lib/libmimalloc.so
+  #   source: /usr/lib/libmimalloc.so.1.7
+  #   type: symlink
+  #   uid: 101
+  #   gid: 101
+  #   permissions: 0o755
+  # - path: /usr/bin/nginx
+  #   source: /sbin/nginx
+  #   type: symlink
+  #   uid: 101
+  #   gid: 101
+  #   permissions: 0o755
   - path: /var/log/nginx/
     uid: 101
     gid: 101
