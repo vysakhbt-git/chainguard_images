@@ -2,12 +2,9 @@ terraform {
   required_providers {
     oci  = { source = "chainguard-dev/oci" }
     helm = { source = "hashicorp/helm" }
-    kind = {
-      source  = "tehcyx/kind"
-      version = ">=0.0.16"
-    }
   }
 }
+
 variable "digest" {
   description = "The image digest to run tests over."
 }
@@ -26,7 +23,7 @@ resource "helm_release" "ingress-nginx-controller" {
 
   namespace        = "ingress-nginx"
   create_namespace = true
-  timeout = 600
+  timeout          = 600
   values = [
     jsonencode({
       controller = {
@@ -42,4 +39,10 @@ resource "helm_release" "ingress-nginx-controller" {
       }
     })
   ]
+}
+
+data "oci_exec_test" "httpbin" {
+  digest     = var.digest
+  depends_on = [helm_release.ingress-nginx-controller]
+  script     = "${path.module}/httpbin.sh"
 }
