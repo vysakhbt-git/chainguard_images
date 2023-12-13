@@ -14,12 +14,7 @@ variable "extra_packages" {
     "temporal",
     "temporal-cassandra-tool",
     "temporal-sql-tool",
-    "temporal-server-schema",
-    "tctl-compat",
-    "tdbg-compat",
-    "temporal-compat",
-    "temporal-cassandra-tool-compat",
-    "temporal-sql-tool-compat"
+    "temporal-server-schema"
   ]
 }
 
