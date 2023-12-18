@@ -12,7 +12,7 @@ require (
 	github.com/stretchr/testify v1.8.4
 	github.com/zclconf/go-cty v1.14.1
 	golang.org/x/exp v0.0.0-20230811145659-89c5cff77bcb
-	golang.org/x/text v0.13.0
+	golang.org/x/text v0.14.0
 	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/apimachinery v0.27.3
 	sigs.k8s.io/release-utils v0.7.6
@@ -52,11 +52,11 @@ require (
 	github.com/skeema/knownhosts v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
-	golang.org/x/crypto v0.14.0 // indirect
+	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/term v0.13.0 // indirect
+	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/tools v0.12.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
