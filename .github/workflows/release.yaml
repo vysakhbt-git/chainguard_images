@@ -90,7 +90,7 @@ jobs:
 
       - uses: chainguard-dev/actions/setup-k3d@main
         with:
-          k3s-image: cgr.dev/chainguard/k3s:latest@sha256:5bf7e7eebcff66a03f360511155b90732dd2b9ebcf4079bbf0c3d9501d717ddc
+          k3s-image: cgr.dev/chainguard/k3s:latest@sha256:d59d242b5615be0d9b9d12cad8225201460f979ce669d3a4849a05649b08c461
 
       # Disable creating new version tags.
       - run: |
